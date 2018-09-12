@@ -1,6 +1,6 @@
 # slides-duck-typing
 
-:clipboard: Slides for TODO
+:clipboard: Slides for `WarsawJS Meetup #49`
 
 ## Preview
 
