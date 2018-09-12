@@ -13,133 +13,16 @@ class: slide-front-page
 
 ---
 
-class: center, middle
+### Pytania?
 
-# INSERT_NAME
-## (first slide is no Twitter handle)
-
----
-
-class: center, middle
-
-# HEADER lvl 1 <span class="slim">slim</span>
-## HEADER lvl 2 <span class="slim">slim</span>
-### HEADER lvl 3 <span class="slim">slim</span>
-#### HEADER lvl 4 <span class="slim">slim</span>
-##### HEADER lvl 5 <span class="slim">slim</span>
-###### HEADER lvl 6 <span class="slim">slim</span>
-
----
-
-class: no-display-twitter-handle
-
-(explicit without Twitter handle)
-
----
-
-.size10[Text 1]
-.size20[
-    Text 2
-]
-.size30[
-    Text 3
-]
 .size40[
-    Text 4
-]
-.size50[
-    Text 5
-]
-.size60[
-    Text 6
-]
 
----
-
-.size70[
-    Text 7
-]
-.size80[
-    Text 8
-]
-.size90[
-    Text 9
-]
-
----
-
-.size100[
-    Text 10
-]
-.size110[
-    Text 11
-]
-
----
-
-.size120[
-    Text 12
-]
-.size130[
-    Text 13
-]
-
----
-
-### Colors
-
-* `gray`
-* _blue_
-* <mark>yellow</mark>
-* <samp>red</samp>
-* <var>green</var>
-
----
-
-### Typgraphy
-
-* Regular
-* <span class="slim">Slim</span>
-
----
-
-### List unordered
-
-* foo
-    - bar
-* baz
-
----
-
-### List ordered
-
-1. foo
-2. bar
-
----
-
-class: slide-invert-colors
-
-### White on black
-
----
-
-### Table
-
-H1 | H2 | H3
-:--- | :---: | ---:
-1 | 2 | 3
-4 | 5 | 6
-
--
-
-.table-borderless.table-striped.table-hover.table-small[
-
-H1 | H2 | H3
-:--- | :---: | ---:
-1 | 2 | 3
-4 | 5 | 6
-7 | 8 | 9
+* Czym jest `Duck typing`?
+* Jak często go używacie na co dzień?
+* Kiedy jest ono niezbędne?
+* Czy ta technika występuje tylko w JavaScript?
+* Czy to źle, że korzystam z `Duck typingu`?
+* ...oraz <samp>Wasze</samp>!
 
 ]
 
@@ -147,57 +30,214 @@ H1 | H2 | H3
 
 class: middle, slide-fullscreen-blockquote
 
-> Pierwszy krok rzadko bywa do tyłu
-> <small>Loesje</small>
+> "Jeśli chodzi jak kaczka i kwacze jak kaczka, to musi być kaczką."
+> <small>Wikipedia - https://pl.wikipedia.org/wiki/Duck_typing</small>
 
 ---
 
-.tag-cloud[
+class: middle, center
 
-* color 1
-* color 2
-* color 3
-* color 4
-* color 5
+# Ocenianie.
+
+## _Angular_ -owa szufladka
+
+---
+
+### Wróćmy do kodu...
+
+# Rozpoznanie obiektu po jego <var>zawartości</var>, a <samp>nie</samp> na podstawie deklaracji.
+
+---
+
+### Back-end, np. <var>strona z filmami</var>
+
+.size40[
+
+```json
+{
+    title: "Rocky",
+    poster: "..."
+}
+```
 
 ]
 
-.tag-cloud.inline[
+.size40[
 
-* color 1
-* color 2
-* color 3
-* color 4
-* color 5
+```json
+{
+    title: "Przyjaciółki odc. 147",
+    thumbnail: "..."
+}
+```
 
 ]
 
 ---
 
-test (regular)
+class: middle
 
-.mirror-horizontal[
-    text (mirror horizontal)
+# 🎊 Demo 🎊
+
+## `src/strategies/`
+
+---
+
+class: middle
+
+# TypeScript i jego <mark>rzutowanie typów</mark>
+
+---
+
+class: middle
+
+# 🎊 Demo 🎊
+
+https://github.com/piecioshka/typescript-playgroung
+
+---
+
+### No okey...
+
+* Jak pobrać deklarację obiektu?
+    + z modelu
+* A jak pobrać jeśli dane dostajemy z serwera?
+    + z modelu
+* Konwersja danych na model!
+
+---
+
+## Model (akceptujący wszystko)
+
+.size30[
+
+```js
+class Movie {
+ constructor(options) {
+  Object.keys(options).forEach((key)=>{
+    this[key] = options.key;
+  })
+ }
+}
+
+m = new Movie({ title: 'Terminator' });
+m.constructor.name // Movie (WARNING: minification)
+Object.getPrototypeOf(m).constructor === Movie // true
+m instanceof Movie // true
+```
+
 ]
+
+---
+
+### Array-like
+
+* `arguments`
+* object z numerowanymi kluczami
+
+_Wszystko może być `array-like` poza `null`, `undefined`_
+
+* Jak sprawdzić, czy `array-like` jest tablicą?
+    + Sprawdzić, czy `length` jest numeryczne.
+* Konwersja za pomocą
+    + ES5: `Object.prototype.slice.call(x)`
+    + ES6: `[...arr]` , `Array.from(arr)`
+
+---
+
+### Array-like: Przykład
+
+_Nie indeksuje się po właściwości tablicy, tylko po jej elementach!_
+
+Dlatego:
+
+.size30[
+
+```js
+a = [];
+a.foo = 'bar';
+a.length === 0; // true
+a.forEach(() => {
+    // nothing here
+})
+```
+
+]
+
+---
+
+class: middle
+
+### <samp>Ciekawostka</samp>: Promise
+
+.size50[
+
+`Object` z funkcją `then` 😅
+
+]
+
+---
+
+### <samp>Ciekawostka</samp>: Promise - przykład 1
+
+.size30[
+
+```js
+const promiseLike = {
+    then(cb) {
+        cb('hue hue');
+    }
+}
+
+promiseLike
+    .then((...args) => {
+        console.log(...args); // "hue hue"
+    })
+```
+
+]
+
+---
+
+### <samp>Ciekawostka</samp>: Promise - przykład 2
+
+.size30[
+
+```js
+const promiseLike = {
+    then(cb) {
+        cb('hue hue');
+    }
+}
+
+async function setup() {
+    const v = await promiseLike;
+    console.log(v);  // "hue hue"
+}
+
+setup();
+```
+
+]
+
+---
+
+class: middle, center
+
+### Polecam!
+
+<samp>Mariusz Nowak</samp> <mark>"Kind of JavaScript"</mark> [WarsawJS Meetup #26](https://www.facebook.com/events/1771669339763323/)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fQIvfgrjGSE?t=12m57s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+---
+
+class: middle
+
+# Thanks! 👍
 
 .mirror-vertical[
-    text (mirror vertical)
+
+# Thanks! 👍
+
 ]
-
----
-
-class: middle, left
-
-# HEADER lvl 1 (middle, left)
-
----
-
-class: middle, right
-
-# HEADER lvl 1 (middle, right)
-
----
-
-class: center, middle
-
-# Thanks! (center, center)

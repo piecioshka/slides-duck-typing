@@ -1,0 +1,18 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "type": "movie",
+        "title": "Rocky",
+        "poster": "https://images-na.ssl-images-amazon.com/images/I/41OgxVYuO8L._SX425_.jpg"
+      },
+
+      {
+        "id": 2,
+        "type": "series",
+        "title": "Przyjaciółki odc. 1",
+        "thumbnail": "https://cdn.galleries.smcloud.net/t/galleries/gf-8tQj-oRgB-vvix_friends-reunion-2016-przyjaciele-spotkaja-sie-po-12-latach-664x442-nocrop.jpg"
+      }
+    ]
+  }
+  
