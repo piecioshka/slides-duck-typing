@@ -77,7 +77,7 @@ class: middle, center
 
 class: middle
 
-# 🎊 Demo 🎊
+# Demo 🎉
 
 ## `src/strategies/`
 
@@ -91,9 +91,9 @@ class: middle
 
 class: middle
 
-# 🎊 Demo 🎊
+# Demo 🎉
 
-https://github.com/piecioshka/typescript-playgroung
+<https://github.com/piecioshka/typescript-playgroung>
 
 ---
 
