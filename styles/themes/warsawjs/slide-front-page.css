@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .remark-slide-content.slide-front-page {
-    background: url(../images/warsawjs/panoramatail.png) repeat-x #fff 0 90%;
+    background: url(../../../images/warsawjs/panoramatail.png) repeat-x #fff 0 90%;
     background-size: 20%;
     padding: 70px 40px 0;
 }
@@ -10,6 +10,10 @@
     width: 550px;
     float: left;
     text-align: center;
+}
+
+.remark-slide-content.slide-front-page .logo img {
+    width: 400px;
 }
 
 .remark-slide-content.slide-front-page .details {

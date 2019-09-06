@@ -1,7 +1,7 @@
 class: slide-front-page
 
 .logo[
-![](./images/warsawjs/logo-white-400x400.jpg)
+![](./images/warsawjs/logo.svg)
 ]
 .details[
 ![](images/piotr-kowalski.jpg)
