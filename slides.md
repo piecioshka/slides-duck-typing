@@ -75,9 +75,9 @@ class: middle, center
 
 ---
 
-class: middle
+class: middle, slide-invert-colors
 
-# Demo 🎉
+# Demo 🎉 #1
 
 ## `src/strategies/`
 
@@ -89,11 +89,11 @@ class: middle
 
 ---
 
-class: middle
+class: middle, slide-invert-colors
 
-# Demo 🎉
+# Demo 🎉 #2
 
-<https://github.com/piecioshka/typescript-playgroung>
+<https://github.com/piecioshka/typescript-playground>
 
 ---
 
@@ -232,12 +232,16 @@ class: middle, center
 
 ---
 
-class: middle
+class: middle, center, slide-invert-colors, no-display-my-logo
 
-# Thanks! 👍
+# <samp>Dziękuję!</samp>
 
-.mirror-vertical[
+<img
+    src="images/my-logo/logo-piecioshka-white-text.svg"
+    alt=""
+    style="width: 500px"
+/>
 
-# Thanks! 👍
-
+.size30[
+» [fb.com/piecioshka.trener](https://fb.com/piecioshka.trener) «
 ]
