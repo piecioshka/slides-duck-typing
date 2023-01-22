@@ -2,7 +2,7 @@
 
 :clipboard: Slides for talk about `Duck Typing`.
 
-## Preview
+## Preview 🎉
 
 <http://piecioshka.github.io/slides-duck-typing>
 
