@@ -243,5 +243,5 @@ class: middle, center, slide-invert-colors, no-display-my-logo
 />
 
 .size30[
-» [fb.com/piecioshka.trener](https://fb.com/piecioshka.trener) «
+» [fb.com/piecioshka.dev](https://fb.com/piecioshka.dev) «
 ]
